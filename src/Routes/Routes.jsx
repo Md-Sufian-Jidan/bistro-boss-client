@@ -20,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: '/order',
                 element: <Order />
+            },
+            {
+                path: '/order/:category',
+                element: <Order />
             }
         ]
     },
