@@ -7,7 +7,7 @@ const FoodCart = ({ item }) => {
             <figure className="px-10 pt-10">
                 <img src={image} alt="Shoes" className="rounded-xl" />
             </figure>
-            <p className="bg-slate-900">${price}</p>
+            <p className="absolute right-0 bg-slate-900 text-white mr-4 mt-4 p-2 rounded">${price}</p>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
                 <p>{recipe}</p>

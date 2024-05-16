@@ -11,7 +11,7 @@ import soupImg from '../../../assets/menu/soup-bg.jpg'
 
 const Menu = () => {
     const { menu } = useMenu();
-    
+
     const dessert = menu?.filter(item => item?.category === 'dessert');
     const soups = menu?.filter(item => item?.category === 'soup');
     const salads = menu?.filter(item => item?.category === 'salad');
@@ -28,13 +28,13 @@ const Menu = () => {
             {/* offered menu items */}
             <MenuCategory items={offered} />
             {/* dessert menu items */}
-            <MenuCategory items={dessert} title="Desserts" coverImg={dessertImg}></MenuCategory>
+            <MenuCategory items={dessert} title="desserts" coverImg={dessertImg} />
             {/* pizza menu items */}
-            <MenuCategory items={pizzas} title="Pizzas" coverImg={pizzaImg}></MenuCategory>
+            <MenuCategory items={pizzas} title="pizzas" coverImg={pizzaImg} />
             {/* salads menu items */}
-            <MenuCategory items={salads} title="Salads" coverImg={saladImg}></MenuCategory>
+            <MenuCategory items={salads} title="salads" coverImg={saladImg} />
             {/* soup menu items */}
-            <MenuCategory items={soups} title="Soups" coverImg={soupImg}></MenuCategory>
+            <MenuCategory items={soups} title="soups" coverImg={soupImg} />
 
         </div>
     );
