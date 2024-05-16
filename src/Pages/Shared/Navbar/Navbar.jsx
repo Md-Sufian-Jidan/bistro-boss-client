@@ -1,12 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const navOptions = <>
-        <li><NavLink>Home</NavLink></li>
-        <li><NavLink>About</NavLink></li>
+        <li><Link to="/menu">Our menu</Link></li>
+        <li><NavLink to="/">Home</NavLink></li>
     </>
     return (
-        <div className="navbar fixed z-50 bg-opacity-30 bg-black max-w-screen-xl text-white">
+        <div className="navbar fixed z-50 bg-opacity-30 bg-black max-w-screen-xl text-white top-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
