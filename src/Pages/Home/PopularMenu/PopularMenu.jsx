@@ -8,16 +8,16 @@ const PopularMenu = () => {
         fetch('menu.json')
             .then(res => res.json())
             .then(data => {
-                const popularItems = data.filter(item => item.category === 'Popular');
+                const popularItems = data.filter(item => item.category === 'popular');
                 setMenu(popularItems);
             })
     }, [])
     return (
-        <section>
+        <section className="mb-12">
             <SectionTitle heading={"From Our Menu"} subHeading={"Popular Items"}></SectionTitle>
-            <div>
+            <div className="grid md:grid-cols-2 gap-10">
                 {
-                    menu.map(item => <MenuItem key={menu._id}></MenuItem>)
+                    menu?.map(item => <MenuItem key={menu._id} item={item}></MenuItem>)
                 }
             </div>
         </section>
