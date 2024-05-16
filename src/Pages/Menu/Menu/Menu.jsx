@@ -11,11 +11,12 @@ import soupImg from '../../../assets/menu/soup-bg.jpg'
 
 const Menu = () => {
     const { menu } = useMenu();
-    const dessert = menu?.filter(item => item?.category === 'dessert')
-    const soups = menu?.filter(item => item?.category === 'soup')
-    const salads = menu?.filter(item => item?.category === 'salad')
-    const pizzas = menu?.filter(item => item?.category === 'pizza')
-    const offered = menu?.filter(item => item?.category === 'offered')
+    
+    const dessert = menu?.filter(item => item?.category === 'dessert');
+    const soups = menu?.filter(item => item?.category === 'soup');
+    const salads = menu?.filter(item => item?.category === 'salad');
+    const pizzas = menu?.filter(item => item?.category === 'pizza');
+    const offered = menu?.filter(item => item?.category === 'offered');
     return (
         <div>
             <Helmet>
