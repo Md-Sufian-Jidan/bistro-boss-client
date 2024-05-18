@@ -18,7 +18,7 @@ const SignUp = () => {
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
-                <div className="card md:w-1/2 max-w-sm shadow-2xl bg-yellow-100">
+                <div className="card md:w-1/2 max-w-sm shadow-2xl bg-purple-300">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -38,9 +38,18 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password"  {...register("password", { required: true, min: 6, maxLength: 20 })} placeholder="password" className="input input-bordered" />
+                            <input type="password" name="password"  {...register("password", { required: true, minLength: 6, maxLength: 20, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} placeholder="password" className="input input-bordered" />
                             {errors.password?.type === "required" && (
-                                <p className="text-red-600" role="alert">Password field is required</p>
+                                <p className="text-red-600">Password field is required</p>
+                            )}
+                            {errors.password?.type === "minLength" && (
+                                <p className="text-red-600">Password Must be 6 Characters</p>
+                            )}
+                            {errors.password?.type === "maxLength" && (
+                                <p className="text-red-600">Password Must be less then 20 Characters</p>
+                            )}
+                            {errors.password?.type === "pattern" && (
+                                <p className="text-red-600">Password Must have one Uppercase, one lowercase, one number and one special character</p>
                             )}
                         </div>
                         <div className="form-control mt-6">
