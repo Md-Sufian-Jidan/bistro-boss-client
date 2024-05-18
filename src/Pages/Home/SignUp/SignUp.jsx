@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-// LoadCanvasTemplateNoReload
-import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import UseAuth from '../../Hooks/UseAuth';
-import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
+import { loadCaptchaEnginge, validateCaptcha } from "react-simple-captcha";
+import UseAuth from "../../../Hooks/UseAuth";
 
-const Login = () => {
+const SignUp = () => {
     const { loginUser } = UseAuth();
     // console.log(loginUser);
     const captchaRef = useRef(null);
@@ -42,7 +40,7 @@ const Login = () => {
             {/* md:flex-row-reverse */}
             <div className="hero-content flex-col">
                 <div className="text-center md:w-1/2 lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <h1 className="text-5xl font-bold">Sign Up now!</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div className="card md:w-1/2 max-w-sm shadow-2xl bg-yellow-100">
@@ -70,11 +68,10 @@ const Login = () => {
                             <input disabled={disabled} type="submit" value="Login" className="btn btn-success" />
                         </div>
                     </form>
-                    <p><small>New Here <Link to="/sign-up" className='hover:underline text-gray-400'>Create an account</Link> </small></p>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default SignUp;
