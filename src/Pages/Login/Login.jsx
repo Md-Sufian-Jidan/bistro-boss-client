@@ -3,7 +3,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 
 const Login = () => {
     const captchaRef = useRef(null);
-    const [disabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(true);
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])
