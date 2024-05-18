@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+// LoadCanvasTemplateNoReload
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import UseAuth from '../../Hooks/UseAuth';
 
 const Login = () => {
+    const { loginUser } = UseAuth();
+    // console.log(loginUser);
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
     useEffect(() => {
@@ -17,13 +21,11 @@ const Login = () => {
     const handleValidateCaptcha = () => {
         const user_captcha_value = captchaRef.current.value;
         if (validateCaptcha(user_captcha_value) == true) {
-            // alert('Captcha Matched');
             setDisabled(false);
         }
-        // else {
-        //     setDisabled(true);
-        // alert('Captcha Does Not Match');
-        // }
+        else {
+            setDisabled(true);
+        }
     };
     return (
         <div className="hero min-h-screen bg-base-200">
