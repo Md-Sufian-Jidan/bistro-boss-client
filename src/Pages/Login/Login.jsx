@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 // LoadCanvasTemplateNoReload
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import UseAuth from '../../Hooks/UseAuth';
 // import toast from 'react-hot-toast';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
@@ -106,7 +106,7 @@ const Login = () => {
                                     <LoadCanvasTemplate />
                                 </label>
                                 <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the text above" className="input input-bordered" required />
-                                <button className='btn btn-outline btn-xs mt-2'>Validate</button>
+                                {/* <button className='btn btn-outline btn-xs mt-2'>Validate</button> */}
                             </div>
                             <div className="form-control mt-6">
                                 <input disabled={disabled} type="submit" value="Login" className="btn btn-success" />
