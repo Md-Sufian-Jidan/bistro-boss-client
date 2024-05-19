@@ -1,11 +1,29 @@
 import { Link, NavLink } from "react-router-dom";
+import UseAuth from "../../../Hooks/UseAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+    const { user, logOutUser } = UseAuth();
+    const handleLogout = () => {
+        logOutUser()
+            .then(() => {
+                toast.success('User Logout Successful');
+            })
+            .catch((err) => {
+                toast.error(err.message)
+            })
+    }
     const navOptions = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><Link to="/menu">Our menu</Link></li>
+        <li><NavLink to="/menu">Our menu</NavLink></li>
+        <li><NavLink to="/secret">secret</NavLink></li>
         <li><NavLink to="/order/salads">Order Food</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
+        {
+            user ?
+                <li><Link onClick={handleLogout} className="btn btn-error btn-sm">Logout</Link></li>
+                :
+                <li><NavLink to="/login">Login</NavLink></li>
+        }
     </>
     return (
         <div className="navbar fixed z-50 bg-opacity-30 bg-black max-w-screen-xl text-white top-0">
@@ -26,6 +44,15 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                {
+                    user && <div className="dropdown dropdown-end mx-2">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img alt="Logged user profile" src={user?.photoURL} />
+                            </div>
+                        </div>
+                    </div>
+                }
                 <a className="btn">Button</a>
             </div>
         </div>
